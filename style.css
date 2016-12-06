@@ -1,0 +1,193 @@
+#calculadora
+{
+
+	position:absolute;
+	width: 360px;
+	color: black;
+	height: 460px;
+	border:2px;
+	
+}
+
+.name 
+{
+	position: relative;
+	width: 300px;
+	height: 20px;
+	margin-top: 30px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.contenedor
+{
+	position: relative;
+	width: 360px;
+	height: 120px;
+	margin-top: 30px;
+}
+.screen
+{
+	position: relative;
+	width: 300px;
+	height: 80px;
+	background-color: #8D6E63;
+	float: left;
+	box-shadow: 0px 2px 0px 1px rgba(0, 0, 0, 0.2);
+	user-select: none;
+	cursor: none;
+	font-size: 36px;
+	text-align: right;
+	font-weight: bold;
+}
+.clear
+{
+	position: relative;
+	width: 60px;
+	height: 80px;
+	background-color: #F50057;
+	float: right;
+	font-size: 60px;
+	text-align: center;
+	box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+	user-select: none;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+
+.keis
+{
+	position: relative;
+	width: 360px;
+	height: 240px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.prees 
+{
+	position: relative;
+	width: 280px;
+	height: 55px;
+	margin-top:5px; 
+}
+.a
+{
+	/* 
+	color_letra
+	color de fondo;
+	color de tecla;
+
+
+
+	*/
+	position: relative;
+	margin-top: 3px;
+	width: 80px;
+	height: 50px;
+	float: left;
+	margin-left: 2px;
+	border-radius: 1px;
+	box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+	user-select: none;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	font-size: 36px;
+	text-align: center;
+	font-weight: bold;
+	background-color: white;
+}
+
+.operator{
+
+	background-color: #B2EBF2;
+
+}
+.a:hover
+{
+	background: #E0F7FA;
+	box-shadow: 0px 4px #3A7787;
+	color: #263238;
+}
+.a:active {
+	box-shadow: 0px 0px #6b54d3;
+	top: 4px;
+}
+
+.clear:hover
+{
+	box-shadow: 0px 4px #3A7787;
+}
+.clear:active {
+	box-shadow: 0px 0px #6b54d3;
+	top: 4px;
+}
+
+/*
+
+
+
+var calculator_container = document.getElementById('calculadora');
+var div_name = document.createElement("div");
+var div_text = document.createTextNode('Calculadora Basica');
+div_name.classList.add('name');
+div_name.appendChild(div_text);
+calculator_container.appendChild(div_name);
+
+var top_container = document.createElement('div');
+top_container.classList.add('contenedor');
+calculator_container.appendChild(top_container);
+
+var clear= document.createElement('span');
+clear.classList.add('clear');
+var name_clear = document.createTextNode('C');
+clear.appendChild(name_clear);
+top_container.appendChild(clear);
+
+var screen = document.createElement('div');
+screen.classList.add('screen');
+top_container.appendChild(screen);
+
+
+var keis = document.createElement('div');
+keis.classList.add('keis');
+calculator_container.appendChild(keis);
+
+
+
+var a = ['9' ,'8' ,'7','+'];
+var b = ['6','5','4','-'];
+var c = ['3','2','1','+'];
+var d = ['0','.','=','÷'];
+
+function clas (x)
+{
+
+var press = document.createElement('div');
+press.classList.add('press');
+keis.appendChild(press);
+
+for (var i = 0; i < x.length; i++) 
+		{
+			var key = document.createElement('span');
+			key.classList.add('a');
+			press.appendChild(key);
+		
+			var add = document.createTextNode(x[i]);
+			key.appendChild(add);
+
+	}
+}
+
+clas(a);
+clas(b);
+clas(c);
+clas(d);
+
+
+
+*/
+
