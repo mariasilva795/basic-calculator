@@ -1,12 +1,9 @@
 #calculadora
 {
-
 	position:absolute;
 	width: 360px;
-	color: black;
 	height: 460px;
-	border:2px;
-	
+	border:2px;	
 }
 
 .name 
@@ -76,14 +73,7 @@
 }
 .a
 {
-	/* 
-	color_letra
-	color de fondo;
-	color de tecla;
 
-
-
-	*/
 	position: relative;
 	margin-top: 3px;
 	width: 80px;
@@ -125,69 +115,4 @@
 	box-shadow: 0px 0px #6b54d3;
 	top: 4px;
 }
-
-/*
-
-
-
-var calculator_container = document.getElementById('calculadora');
-var div_name = document.createElement("div");
-var div_text = document.createTextNode('Calculadora Basica');
-div_name.classList.add('name');
-div_name.appendChild(div_text);
-calculator_container.appendChild(div_name);
-
-var top_container = document.createElement('div');
-top_container.classList.add('contenedor');
-calculator_container.appendChild(top_container);
-
-var clear= document.createElement('span');
-clear.classList.add('clear');
-var name_clear = document.createTextNode('C');
-clear.appendChild(name_clear);
-top_container.appendChild(clear);
-
-var screen = document.createElement('div');
-screen.classList.add('screen');
-top_container.appendChild(screen);
-
-
-var keis = document.createElement('div');
-keis.classList.add('keis');
-calculator_container.appendChild(keis);
-
-
-
-var a = ['9' ,'8' ,'7','+'];
-var b = ['6','5','4','-'];
-var c = ['3','2','1','+'];
-var d = ['0','.','=','÷'];
-
-function clas (x)
-{
-
-var press = document.createElement('div');
-press.classList.add('press');
-keis.appendChild(press);
-
-for (var i = 0; i < x.length; i++) 
-		{
-			var key = document.createElement('span');
-			key.classList.add('a');
-			press.appendChild(key);
-		
-			var add = document.createTextNode(x[i]);
-			key.appendChild(add);
-
-	}
-}
-
-clas(a);
-clas(b);
-clas(c);
-clas(d);
-
-
-
-*/
 
