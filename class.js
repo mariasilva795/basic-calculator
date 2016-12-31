@@ -1,16 +1,14 @@
-class calculator {
-
+class calculator 
+{
 	constructor(color, background, keysBackground)
 		{
-			/*Las variables que estan en los metodos pueden pasar hacia el constructor este lo ire definiendo a medida que vaya 
-			realizandola*/
-
+			this.operation = ['+', '-', 'x', '÷'];
 			this.color  = color;
 			this.background = background;
 			this.keysBackground = keysBackground;
 			this.calculator_container = document.getElementById('calculadora');
 			this.keis = document.createElement('div');
-			this.inputMode  = false;
+			this.decimal = 
 		}
 
 	general_desing()
@@ -49,6 +47,7 @@ class calculator {
 			this.calculator_container.appendChild(this.keis);
 }
 
+//Funcion para generar las teclas
 	keys(x)
 		{
 			this.calculator_container.appendChild(this.keis);
@@ -65,60 +64,97 @@ class calculator {
 				let add = document.createTextNode(x[i]);
 				key.appendChild(add);
 			}
-
-			
 		}
 
+//Funcion para controlar la salida de los datos en pantalla
 		init()
 		{
-			var keys = document.getElementsByTagName('span');
-			var screen_top = document.querySelector('.screen');
-			var screen_text = screen_top.innerHTML;
+		
+		var keys = document.getElementsByTagName('span');
 
-
-			for (var i = 0; i < keys.length; i++) 
+		//Recorrer las teclas.
+		for (var i = 0; i < keys.length; i++) 
 			{
-				keys[i].addEventListener("click",(e) => {
+					//Agregar evento cuando se pulsa
+					keys[i].addEventListener("click",(e) => {
+					var screen_top = document.querySelector('.screen');
+					var screen_text = screen_top.innerHTML;
 					var _this = e.currentTarget;
 					var button = _this.innerHTML;
 
-					if (button == "C") 
-						{
-							screen_top.innerText = '';
-							this.inputMode = false;							
-						}
-					else if (button == ".") 
+			if (button == "C") 
+				{
+					screen_top.innerText = '';
+					this.inputMode = false;							
+				}
+			
+			else if (button == '=') 
+				{
+					this.result(screen_text);
+				}
+
+			else if (screen_text == "" && button == "-") 
+				{
+					screen_top.innerHTML = screen_top.innerHTML + button;
+				}
+
+			else if(this.operation.indexOf(button) > -1)
 					{
-						
+					var lastChar = screen_text[screen_text.length - 1];
+						if (screen_text != '' && this.operation.indexOf(lastChar) == -1) 
+							{
+								screen_top.innerHTML = screen_top.innerHTML + button;
+							}
+						if (this.operation.indexOf(lastChar) > -1 && screen_text.length > 1) 
+							{
+								screen_top.innerHTML = screen_text.replace(/.$/, button);
+							}
 					}
+			else
+				{
+					screen_top.innerText = screen_top.innerText + button;
+				}
 
-
-				});
+			});
 			}
+			}	
 
+//Funcion para validar e imprimir el resultado
+		result(screen_text)
+		{
+			var screen_top = document.querySelector('.screen');
+			var lastChar = screen_text[screen_text.length - 1];
+			var equation = screen_text;
 
-/*	var keys = document.getElementsByTagName('span');
-for (var i = 0; i < keys.length; i++) 
-{
-	keys[i].addEventListener("click", function(evento)
-	{
-		console.log("hola");
-	});
-}*/
+			equation = equation.replace(/x/g,'*').replace(/÷/,'/');
 
+			if (this.operation.indexOf(lastChar) > -1 || lastChar == '.' ) 
+				{
+					 equation = equation.replace(/.$/,'')
+				}
+
+			try
+				{
+					var x = screen_top.innerHTML = eval(equation);
+				}
+			catch(e)
+				{
+					screen_top.innerHTML = "System error";
+				}
 		}
-	}	
+}	
+
+//El símbolo dólar indica que la letra anterior ha de ser obligatoriamente última letra de la cadena
+//El símbolo punto indica existencia de cualquier carácter.
 
 
-
-//var calculadoraa = new calculator();
-var calculadoraa = new calculator('yellow','black','');
+var calculadoraa = new calculator('');
 
 calculadoraa.general_desing();
 
 var a = ['9' ,'8' ,'7','+'];
 var b = ['6','5','4','-'];		
-var c = ['3','2','1','+'];
+var c = ['3','2','1','x'];
 var d = ['0','.','=','÷'];
 
 
@@ -128,9 +164,3 @@ calculadoraa.keys(c);
 calculadoraa.keys(d);
 calculadoraa.init();
 
-
-
-/*Es una funcion especial que nos ayuda a definir o 
-que define el patro de un objeto que no permite reutilizarlo
-para crear muchos objetos con las misma propiedadaes o funciones
-*/
